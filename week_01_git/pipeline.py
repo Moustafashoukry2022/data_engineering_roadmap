@@ -9,7 +9,10 @@ def load_data():
 def validate_data():
     print("Validating data...")
 
+def log_pipeline():
+    print("Pipeline started...")
 
 extract_data()
 load_data()
 validate_data()
+log_pipeline()
