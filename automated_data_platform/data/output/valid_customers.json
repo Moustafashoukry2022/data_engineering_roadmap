@@ -1,0 +1,31 @@
+{
+    "file1.json": [
+        {
+            "id": 101,
+            "name": "Ahmed",
+            "country": "Egypt"
+        },
+        {
+            "id": 103,
+            "name": "Sara",
+            "country": "Unknown"
+        }
+    ],
+    "file2.json": [
+        {
+            "id": 201,
+            "name": "Mona",
+            "country": "Egypt"
+        },
+        {
+            "id": 204,
+            "name": "Nour",
+            "country": "Unknown"
+        },
+        {
+            "id": 206,
+            "name": "Karim",
+            "country": "Unknown"
+        }
+    ]
+}

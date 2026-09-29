@@ -1,0 +1,23 @@
+{
+  "customers": [
+    {
+      "id": 101,
+      "name": "Ahmed",
+      "country": "Egypt"
+    },
+    {
+      "id": 102,
+      "name": "",
+      "country": "UAE"
+    },
+    {
+      "id": 103,
+      "name": "Sara"
+    },
+    {
+      "id": "abc",
+      "name": "Omar",
+      "country": "Egypt"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+    "file1.json": [
+        {
+            "id": 102,
+            "name": "",
+            "country": "UAE",
+            "errors": [
+                "wrong name type:<class 'str'>"
+            ]
+        },
+        {
+            "id": "abc",
+            "name": "Omar",
+            "country": "Egypt",
+            "errors": [
+                "id must be an integer",
+                "wrong name type:<class 'str'>",
+                "name must not be empty"
+            ]
+        }
+    ],
+    "file2.json": [
+        {
+            "id": 202,
+            "name": "",
+            "country": "UAE",
+            "errors": [
+                "wrong name type:<class 'str'>"
+            ]
+        },
+        {
+            "id": "203",
+            "name": "Youssef",
+            "country": "Egypt",
+            "errors": [
+                "id must be an integer",
+                "wrong name type:<class 'str'>",
+                "name must not be empty"
+            ]
+        },
+        {
+            "id": "ABC",
+            "name": "",
+            "country": "Unknown",
+            "errors": [
+                "id must be an integer",
+                "wrong name type:<class 'str'>"
+            ]
+        }
+    ]
+}
