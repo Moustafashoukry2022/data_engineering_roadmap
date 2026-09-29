@@ -21,9 +21,9 @@ def  validate_data(data):
         else:
             if type(row.get("id"))!=int:
                 errors.append("id must be an integer")
-            if type(row.get("name"))==str:
+            if type(row.get("name"))!=str:
                 errors.append(f"wrong name type:{type(row.get("name"))}")
-            if row["name"]!= "":
+            if row["name"]== "":
                 errors.append("name must not be empty")
             row["errors"]=errors
             logger.debug(row)

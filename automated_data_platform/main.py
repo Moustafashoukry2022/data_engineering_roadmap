@@ -1,17 +1,13 @@
 import logging
 from data_handler import find_input_file,read_input_file,write_data
 from validation import validate_data
-logging.basicConfig(
-    level=logging.DEBUG,
-    filename="C:\\Mine folder\\data_engineering_roadmap\\automated_data_platform\\logs\\pipleline.log",
-    filemode="a",
-    format="%(asctime)s | %(filename)s | %(levelname)s | %(message)s"
-)
+from config import setup_logging_config
+
+setup_logging_config
 
 logger = logging.getLogger(__name__)
 
 try:
-
     files=find_input_file()
     all_bad_rows={}
     all_good_rows={}
