@@ -1,0 +1,19 @@
+{
+    "schema" : {
+    "order_id": "integer",
+    "product": "string",
+    "quantity": "integer",
+    "unit_price": "float",
+    "customer_id": "string",
+    "order_date": "datetime",
+    "category": "string",
+    "city": "string",
+    "sales_channel": "string",
+    "discount_pct": "float",
+    "payment_method": "string",
+    "order_status": "string",
+    "shipping_fee": "float",
+    "is_member": "boolean",
+    "customer_rating": "integer"
+}
+}

@@ -1,0 +1,159 @@
+AUTOMATED DATA PLATFORM — PROJECT REQUIREMENTS
+Version: 1.0 (Current Learning Milestone)
+Updated: 2026-10-27
+
+1. PROJECT OVERVIEW
+Build a modular Python ETL (Extract, Transform, Load) pipeline for retail sales CSV files. The pipeline should discover input files, read sales records, validate data quality, calculate revenue, save processed results, and report execution metrics. This is the first milestone of a larger Data Engineering platform.
+
+2. SOURCE DATA
+Input directory: Automated_Data_Platform/input/
+Sample file: sales.csv (1,000 data rows plus one header row)
+Expected columns:
+- order_id: unique identifier for an order
+- product: product name
+- quantity: number of units sold
+- unit_price: price per unit
+
+The sample intentionally includes some missing order IDs and repeated order IDs for testing.
+
+3. PROJECT ORGANIZATION
+Repository: data_engineering_roadmap
+Development branch: Automated_Data_Platform
+Project directory: Automated_Data_Platform/
+
+Suggested structure (create modules as they are implemented):
+Automated_Data_Platform/
+  input/
+    sales.csv
+  output/
+  src/
+    main.py
+    file_handler.py
+    validation.py
+    transformation.py
+    log_config.py
+  tests/
+  logs/
+  requirements.txt
+  Dockerfile
+  .dockerignore
+  .gitignore
+  README.md
+
+Notes:
+- The initial repository may still have an empty src/etl.py placeholder; it can be reused or removed later by decision.
+- Git does not track empty directories unless they contain tracked files.
+
+4. FUNCTIONAL REQUIREMENTS — CURRENT V1
+
+FR-01: Discover input files
+- Search the input/ directory for files ending with .csv (case insensitive).
+- Return a list of matching file names or file paths.
+- If there are no CSV files, raise a clear FileNotFoundError (current implementation choice).
+- Log the discovery start and the number of files found.
+
+FR-02: Read input data
+- Read each selected CSV into a Pandas DataFrame.
+- Use paths relative to the project root, not an absolute machine-specific path.
+- Preserve the source file independently from any cleaned output.
+- Log the name of the file being read.
+
+FR-03: Validate the data
+Implement validate_sales_data(df) that accepts a DataFrame; it must not open or save files.
+Apply these rules:
+  V01: Reject a row whose order_id is missing.
+  V02: Reject a row whose product is missing, empty, or whitespace-only.
+  V03: Reject a row whose quantity is missing, nonnumeric, <= 0, or non-integer.
+  V04: Reject a row whose unit_price is missing, nonnumeric, or <= 0.
+  V05: Among records that pass V01-V04, treat duplicate order_id values as duplicates; retain the first valid occurrence and reject subsequent ones.
+- Each rejected input record should appear once in rejected_df, with a rejection_reason column describing at least its first rejection reason.
+- Do not mutate the original input DataFrame passed by the caller.
+- Log the beginning/end of validation and relevant counts.
+- Return (valid_df, rejected_df, validation_summary).
+- validation_summary should include at least:
+    total_records
+    valid_records
+    rejected_records
+    duplicate_records
+- Counting rule: total_records = valid_records + rejected_records; duplicate_records is a subset of rejected_records, not an additional category to subtract twice.
+
+FR-04: Transform valid data
+- Compute revenue = quantity * unit_price for every validated sales record.
+- Keep the required source columns and include the new revenue column.
+- Run this step on valid records, not on unvalidated records.
+
+FR-05: Write outputs
+- Save cleaned, transformed data to output/cleaned_sales.csv for the initial single-file demonstration.
+- Save rejected records to output/rejected_sales.csv, including rejection_reason.
+- Do not include an unintended Pandas DataFrame index in CSV output.
+- Create the output directory if it does not exist.
+- For subsequent multi-file support, define unique output names per source file so files do not overwrite each other.
+
+FR-06: Execution entry point
+- main.py should orchestrate: discover -> read -> validate -> transform -> save -> summarize.
+- Processing and validation functions must remain independent of main.py.
+- Avoid running the pipeline automatically when importing modules.
+
+FR-07: Logging and run summary
+- Configure Python logging once in the application's entry point using log_config.py (or equivalent).
+- Modules should obtain their own logger via logging.getLogger(__name__).
+- Record meaningful start/end messages, file names, exceptions, and summary metrics.
+- Print or log: input rows, accepted rows, rejected rows, duplicate rows, and total revenue.
+
+5. ACCEPTANCE CRITERIA
+- The pipeline can read the committed 1,000-row sales.csv sample.
+- Validation separates accepted and rejected records without losing any input rows.
+- No accepted record has a missing order_id, blank product, invalid quantity, or invalid unit_price.
+- Accepted records have unique order_id values.
+- All accepted records include correctly calculated revenue.
+- The final output files can be opened and inspected as CSV files.
+- All listed counts reconcile.
+- The pipeline runs from the project structure without hardcoded local Windows paths.
+
+Important: Prior discussions mentioned 19 missing IDs, 27 duplicate-ID cases, and an illustrative count of 954 valid rows. These are useful test hypotheses, NOT a substitute for verifying actual deduplication and validation results from the file. Determine final acceptance counts from the implemented rules and source file.
+
+6. CODE DESIGN AND OWNERSHIP
+- file_handler.py: find CSVs, read input, write results.
+- validation.py: validation rules, rejection reasons, validation summary.
+- transformation.py: revenue calculation and future business transformations.
+- main.py: execution order and run-level control.
+- log_config.py: logging configuration (called once).
+- tests/: unit tests for validations and transformations, to be added as the implementation develops.
+- Prefer pathlib.Path for portable file paths.
+- Prefer Pandas for CSV ETL; use standard Python logging.
+- Keep functions small and focused on one responsibility.
+
+7. GIT / GITHUB WORKFLOW
+- Work inside the existing data_engineering_roadmap repository.
+- Use the existing Automated_Data_Platform feature branch until ready for review/integration.
+- Commit changes in meaningful increments and push the branch to GitHub.
+- Use git status before staging; do not blindly stage unrelated files from the repository.
+- Never commit passwords, tokens, company data, local logs, or large generated output files.
+- Keep synthetic sample data available for practice; define suitable .gitignore rules before publishing generated artifacts.
+- Merging into main is a later review decision, not required for the current milestone.
+
+8. OUT OF SCOPE FOR CURRENT V1 (PLANNED UPGRADES)
+V2 — file processing reliability:
+- Detect previously handled file content using SHA-256 or a processing registry.
+- Process multiple files safely and archive successful inputs in handled/.
+- Do not record a file as completed until its processing/output succeeds.
+- Handle partial files, file failures, and retry behavior.
+- Avoid deleting good outputs just because a repeated input file was detected.
+
+V3 — production-oriented pipeline:
+- Persist data and processing state in PostgreSQL.
+- Add durable checkpoints, recovery, idempotent writes/upserts, and detailed tests.
+- Containerize the pipeline with Docker; mount input/output as appropriate.
+- Orchestrate scheduled processing with Airflow.
+- Extend to cloud, data modeling, and other roadmap topics later.
+
+9. IMPLEMENTATION STATUS AS OF THIS REQUIREMENTS DOCUMENT
+- GitHub repository/feature branch and sample CSV are in place.
+- A preliminary file discovery/CSV reader has been drafted by the learner.
+- Validation rules have been defined but validation code has not yet been reviewed.
+- Transformation, output writer, and full main pipeline remain to be implemented.
+- Docker execution and advanced reliability should wait until their roadmap milestones.
+
+10. NEXT TASK
+Implement validation.py with validate_sales_data(df) according to FR-03.
+Return valid_df, rejected_df, and validation_summary; keep file access outside validation.py.
