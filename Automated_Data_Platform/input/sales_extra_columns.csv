@@ -1,0 +1,81 @@
+order_id,product,quantity,unit_price,customer_id,order_date,category,city,sales_channel,discount_pct,payment_method,order_status,shipping_fee,is_member,customer_rating,internal_note
+1080,SSD,3,2400,C0312,2026-03-25,Storage,Giza,Mobile App,0,Wallet,Completed,0,False,1,ok
+1081,Monitor,6,5000,C0329,2026-03-26,Electronics,Mansoura,Online,5,Card,Completed,25,True,2,review
+1081,Monitor,6,5000,C0329,2026-03-26,Electronics,Mansoura,Online,5,Cash,Completed,50,False,3,ok
+1083,USB Hub,5,450,C0363,2026-03-28,,Aswan,Mobile App,15,Wallet,Completed,75,True,4,review
+1084,Headset,1,600,C0380,2026-03-01,Accessories,Alexandria,Online,20,Card,Completed,0,False,5,ok
+1085,Mouse,4,250,C0110,2026-03-02,Accessories,Cairo,Store,0,Cash,Pending,25,True,1,review
+1086,Chair,7,3200,C0127,2026-03-03,Furniture,Giza,Mobile App,5,Wallet,Pending,50,False,2,ok
+1087,Webcam,3,1400,C0144,2026-03-04,Electronics,Mansoura,Online,10,Card,Pending,75,True,3,review
+1088,Keyboard,6,800,C0161,2026-03-05,Accessories,Tanta,Store,15,Cash,Pending,0,False,4,ok
+1089,Desk,2,7500,C0178,2026-03-06,Furniture,,Mobile App,20,Wallet,Pending,25,True,5,review
+1090,SSD,5,2400,C0195,2026-04-07,Storage,Alexandria,Online,0,Card,Cancelled,50,False,1,ok
+1091,Headset,1,600,C0212,2026-04-08,Accessories,Cairo,Store,5,Cash,Cancelled,75,True,2,review
+1092,Mouse,4,250,C0229,2026-04-09,Accessories,Giza,Mobile App,10,Wallet,Cancelled,0,False,3,ok
+1093,Chair,7,3200,C0246,2026-04-10,Furniture,Mansoura,Online,15,Card,Cancelled,25,True,4,review
+1094,Webcam,3,1400,C0263,2026-04-11,Electronics,Tanta,Store,20,Cash,Cancelled,50,False,5,ok
+1095,Keyboard,6,800,C0280,2026-04-12,Accessories,Aswan,Mobile App,0,Wallet,Returned,75,True,1,review
+1096,Desk,2,7500,C0297,2026-04-13,Furniture,Alexandria,Online,5,Card,Returned,0,False,2,ok
+1097,SSD,-2,2400,C0314,2026-04-14,Storage,Cairo,Store,10,Cash,Returned,25,True,3,review
+1098,Monitor,1,5000,C0331,2026-04-15,Electronics,Giza,Mobile App,15,Wallet,Returned,50,False,4,ok
+1099,Laptop,4,15000,C0348,2026-04-16,Electronics,Mansoura,Online,20,Card,Returned,75,True,5,review
+1100,USB Hub,7,450,C0365,2026-04-17,Accessories,Tanta,Store,0,Cash,Completed,0,False,1,ok
+1101,Headset,3,0,C0382,2026-04-18,Accessories,Aswan,Mobile App,5,Wallet,Completed,25,True,2,review
+1102,Mouse,6,250,C0112,2026-04-19,Accessories,Alexandria,Online,10,Card,Completed,50,False,3,ok
+1103,Chair,2,3200,C0129,2026-04-20,Furniture,Cairo,Store,15,Cash,Completed,75,True,4,review
+1104,SSD,5,2400,C0146,2026-04-21,Storage,Giza,Mobile App,20,Wallet,Completed,0,False,5,ok
+1105,Monitor,1,5000,C0163,2026-04-22,Electronics,Mansoura,Online,0,Card,Pending,25,True,1,review
+,Laptop,4,15000,C0180,2026-04-23,Electronics,Tanta,Store,5,Cash,Pending,50,False,2,ok
+1107,USB Hub,7,450,C0197,2026-04-24,Accessories,Aswan,Mobile App,125,Wallet,Pending,75,True,3,review
+1108,Headset,3,600,C0214,2026-04-25,Accessories,Alexandria,Online,15,Card,Pending,0,False,4,ok
+1109,Mouse,6,250,C0231,2026-04-26,Accessories,Cairo,Store,bad,Cash,Pending,25,True,5,review
+1110,Chair,2,3200,C0248,2026-04-27,Furniture,Giza,Mobile App,0,Wallet,Cancelled,50,False,1,ok
+1110,Webcam,5,1400,C0265,2026-04-28,Electronics,Mansoura,Online,5,Card,Cancelled,75,True,2,review
+1112,Keyboard,1,800,C0282,2026-04-01,Accessories,Tanta,Store,10,Cash,Cancelled,0,False,3,ok
+1113,Desk,4,7500,C0299,2026-04-02,Furniture,Aswan,Mobile App,15,Wallet,Cancelled,unknown,True,4,review
+1114,SSD,7,2400,C0316,2026-04-03,Storage,Alexandria,Online,20,Card,Cancelled,50,False,5,ok
+1115,Monitor,3,5000,C0333,2026-04-04,Electronics,Cairo,Store,0,Cash,Returned,75,True,1,review
+1116,Laptop,6,15000,C0350,2026-04-05,Electronics,Giza,Mobile App,5,Wallet,Returned,0,False,2,ok
+1117,Chair,2,3200,C0367,2026-04-06,Furniture,Mansoura,Online,10,Card,Returned,25,True,3,review
+1118,Webcam,5,1400,C0384,2026-04-07,Electronics,Tanta,Store,15,Cash,Returned,50,False,4,ok
+1119,Keyboard,1,800,C0114,2026-04-08,Accessories,Aswan,Mobile App,20,Wallet,Returned,75,True,5,review
+1120,Desk,4,7500,C0131,2026-05-09,Furniture,Alexandria,Online,0,Card,Completed,0,False,1,ok
+1121,SSD,7,2400,C0148,2026-05-10,Storage,Cairo,Store,5,Cash,Completed,25,True,2,review
+1122,Monitor,3,5000,C0165,2026-05-11,Electronics,Giza,Mobile App,10,Wallet,Completed,50,False,3,ok
+1122,Monitor,3,5000,C0165,2026-05-11,Electronics,Giza,Mobile App,10,Card,Completed,75,True,4,review
+1124,USB Hub,2,450,C0199,2026-05-13,Accessories,Tanta,Store,20,Cash,Completed,0,False,5,ok
+1125,Headset,5,600,C0216,2026-05-14,Accessories,Aswan,Mobile App,0,Wallet,Pending,25,True,1,review
+1126,Mouse,1,250,C0233,2026-05-15,Accessories,Alexandria,Online,5,Card,Pending,50,False,2,ok
+1127,Chair,4,3200,C0250,not-a-date,Furniture,Cairo,Store,10,Cash,Pending,75,True,3,review
+1128,Webcam,7,1400,C0267,2026-05-17,Electronics,Giza,Mobile App,15,Wallet,Pending,0,False,4,ok
+1129,Keyboard,3,800,C0284,2026-05-18,Accessories,Mansoura,Online,20,Card,Pending,25,True,5,review
+1130,Laptop,6,15000,C0301,2026-05-19,Electronics,Tanta,Store,0,Cash,Cancelled,50,False,1,ok
+1131,USB Hub,2,450,C0318,2026-05-20,Accessories,Aswan,Mobile App,5,Wallet,Cancelled,75,True,2,review
+1132,Headset,5,600,C0335,2026-05-21,Accessories,Alexandria,Online,10,Card,Cancelled,0,False,3,ok
+1133,Mouse,1,250,C0352,2026-05-22,Accessories,Cairo,Store,15,Cash,Cancelled,25,True,4,review
+1134,Chair,4,3200,,2026-05-23,Furniture,Giza,Mobile App,20,Wallet,Cancelled,50,False,5,ok
+1135,Webcam,7,1400,C0386,2026-05-24,Electronics,Mansoura,Online,0,Card,Returned,75,True,1,review
+1136,Keyboard,3,800,C0116,2026-05-25,Accessories,Tanta,Store,5,Cash,Returned,0,False,2,ok
+1137,Desk,6,7500,C0133,2026-05-26,Furniture,Aswan,Mobile App,10,Wallet,Returned,25,maybe,3,review
+1138,SSD,2,2400,C0150,2026-05-27,Storage,Alexandria,Online,15,Card,Returned,50,False,4,ok
+1139,Monitor,5,5000,C0167,2026-05-28,Electronics,Cairo,Store,20,Cash,Returned,75,True,5,review
+1140,Laptop,1,15000,C0184,2026-05-01,Electronics,Giza,Mobile App,0,Wallet,Completed,0,False,1,ok
+1141,USB Hub,4,450,C0201,2026-05-02,Accessories,Mansoura,Online,5,Card,Completed,25,True,2,review
+1142,Headset,7,600,C0218,2026-05-03,Accessories,Tanta,Store,10,Cash,Completed,50,False,3,ok
+1143,Keyboard,3,800,C0235,2026-05-04,Accessories,Aswan,Mobile App,15,Wallet,Completed,75,True,4,review
+1144,Desk,6,7500,C0252,2026-05-05,Furniture,Alexandria,Online,20,Card,Completed,0,False,5,ok
+1145,SSD,2,2400,C0269,2026-05-06,Storage,Cairo,Store,0,Cash,Pending,25,True,1,review
+1146,Monitor,5,5000,C0286,2026-05-07,Electronics,Giza,Mobile App,5,Wallet,Pending,50,False,2,ok
+1147,Laptop,1,15000,C0303,2026-05-08,Electronics,Mansoura,Online,10,Card,Pending,75,True,3,review
+1147,USB Hub,4,450,C0320,2026-05-09,Accessories,Tanta,Store,15,Cash,Pending,0,False,4,ok
+1149,Headset,7,600,C0337,2026-05-10,Accessories,Aswan,Mobile App,20,Wallet,Pending,25,True,9,review
+1150,Mouse,3,250,C0354,2026-06-11,Accessories,Alexandria,Online,0,Card,Cancelled,50,False,1,ok
+1151,Chair,6,3200,C0371,2026-06-12,Furniture,Cairo,Store,5,Cash,Cancelled,75,True,2,review
+1152,Webcam,2,1400,C0101,2026-06-13,Electronics,Giza,Mobile App,10,Wallet,Cancelled,0,False,3,ok
+1153,Keyboard,5,800,C0118,2026-06-14,Accessories,Mansoura,Online,15,Card,Cancelled,25,True,4,review
+1154,Desk,1,7500,C0135,2026-06-15,Furniture,Tanta,Store,20,Cash,Cancelled,50,False,5,ok
+1155,SSD,4,2400,C0152,2026-06-16,Storage,Aswan,Mobile App,0,Wallet,Returned,75,True,1,review
+1156,Headset,7,600,C0169,2026-06-17,Accessories,Alexandria,Online,5,Card,Returned,0,False,2,ok
+1157,Mouse,3,250,C0186,2026-06-18,Accessories,Cairo,Store,10,Cash,Returned,25,True,3,review
+1158,Chair,6,3200,C0203,,Furniture,Giza,Mobile App,15,Wallet,Returned,50,False,4,ok
+,Webcam,2,1400,C0220,2026-06-20,Electronics,Mansoura,Online,20,Card,Returned,75,True,5,review
