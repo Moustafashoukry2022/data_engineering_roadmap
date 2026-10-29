@@ -121,13 +121,13 @@ def data_type_validation(data,schema,filename):
     column_error_count=0
     for key,value in expected_data_type.items():
         if    (
-               (value =='float' and (not str(data[key].dtype).startswith('int') and not str(data[key].dtype).startswith('float')))
-            or (value =='integer' and (not str(data[key].dtype).startswith('int')))
+               (value =='float' and (not str(data[key].dtype).lower().startswith('int') and not str(data[key].dtype).startswith('float')))
+            or (value =='integer' and (not str(data[key].dtype).lower().startswith('int')))
             or (value =='string' and (not str(data[key].dtype).startswith('str')))
             or (value =='datetime' and (not str(data[key].dtype).startswith('date')))
             or (value =='boolean' and (not str(data[key].dtype).startswith('bool')))
               ):
-            converted,status=try_convertion(data[key],value,filename)
+            converted,status=try_convertion(data[key],value)
             if status:
                 data[key]=converted
             else:
