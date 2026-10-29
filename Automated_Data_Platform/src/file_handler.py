@@ -28,6 +28,7 @@ def find_input_files():
     
 def find_schema_files():
     logger.info("Started fetching schema")
+    schema_file=None    
     for file in os.listdir(schema_folder):
         if file.lower().endswith(".json"):
             schema_file=file
@@ -49,6 +50,9 @@ def read_input_data(filename):
     data=pd.read_csv(input_folder / filename)
     return data
 
+def create_file(location,filename,data):
+    data=pd.DataFrame(data)
+    data.to_csv(BASE_DIR / location / filename , index=False)
 
 
 

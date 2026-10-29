@@ -1,0 +1,5 @@
+column_name,row_number,value,expected_data_type,current_data_type
+order_date,2,not-a-date,datetime,object
+discount_pct,2,bad,float,object
+shipping_fee,2,unknown,float,object
+is_member,2,maybe,boolean,object

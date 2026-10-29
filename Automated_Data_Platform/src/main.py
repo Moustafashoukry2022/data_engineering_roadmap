@@ -17,20 +17,33 @@ if __name__ == "__main__":
         files=fh.find_input_files()
         schema_file=fh.find_schema_files()
         schema=fh.read_schema(schema_file)
+
         #loop over files
         for file in files:
             try:
                 #read data
                 data=fh.read_input_data(file)
-                
-                validation_result=va.validate_column_schema(data,schema)
-                if validation_result=="warning":
+                data.columns = (data.columns.str.strip().str.lower().str.replace(" ", "_"))
+
+                #column validation
+                column_validation_result=va.validate_column_schema(data,schema)
+                if column_validation_result=="warning":
                     logger.warning("issues in the input data but pipleline can still contniue")
                 else:
                     logger.info("input columns checked and are successful")
+                #type validation
+                column_type_error,expected_data,validation_list=va.data_type_validation(data,schema,file)
+                if column_type_error>0:
+                    fh.create_file('validation',file,validation_list)
+                    logger.error(f"number of wrong columns: {column_type_error}")
+                else:
+                    data=expected_data
+            
             except DataValidationError as e:
                  failed_to_handle.append(file)
                  logger.error(e)
+            except TypeError as e:
+                logger.error(e)
         if failed_to_handle:
             logger.error(f"files :{failed_to_handle} failed to be handeld")
     except FileNotFoundError:

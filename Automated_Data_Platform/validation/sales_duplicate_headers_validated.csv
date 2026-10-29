@@ -1,0 +1,3 @@
+column_name,row_number,value,expected_data_type,current_data_type
+order_date,16,not-a-date,datetime,object
+is_member,36,maybe,boolean,object
